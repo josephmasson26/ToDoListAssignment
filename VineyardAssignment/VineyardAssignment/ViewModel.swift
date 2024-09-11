@@ -19,15 +19,24 @@ class ViewModel {
     /// Creates a new empty ItemList with the given name.
     func createList(name: String) {
         // TODO: Complete this function.
+        let newList = ItemList(name: name)
+        lists.append(newList)
+
     }
     
     /// Adds an item with the given name to an ItemList.
     func addItem(to list: ItemList, name: String) {
         // TODO: Complete this function.
+        if let index = lists.firstIndex(where: { $0.id == list.id }) {
+            lists[index].addItem(name)
+        }
     }
     
     /// Toggle an item as complete or incomplete.
     func toggleItemAsCompleted(_ item: ItemList.Item, list: ItemList) {
         // TODO: Complete this function.
+        if let index = lists.firstIndex(where: { $0.id == list.id }) {
+            lists[index].toggleItemAsCompleted(item)
+        }
     }
 }
