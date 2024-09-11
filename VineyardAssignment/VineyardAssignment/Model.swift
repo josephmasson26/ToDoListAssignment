@@ -10,22 +10,36 @@ import SwiftUI
 @Observable
 class ItemList: Identifiable {
     var id: UUID = .init()
-    // TODO: What properties would ItemList have?
+    var name: String
+    var items: [Item] = []
+    // Done: What properties would ItemList have?
     
-    init() {}
+    init(name: String) {
+        self.name = name
+    }
     
-    struct Item {
-        // TODO: What properties would Item have?
-        
-        init() {}
+    struct Item: Identifiable {
+        // Donne: What properties would Item have?
+        var id: UUID = .init()
+        var name: String
+        var isCompleted: Bool = false
+
+        init(name: String) {
+            self.name = name
+        }
     }
     
     func addItem(_ name: String) {
-        // TODO: Create an Item object with the given name, and add it to this ItemList.
+        // Done: Create an Item object with the given name, and add it to this ItemList.
+        let newItem = Item(name: name)
+        items.append(newItem)
     }
     
     func toggleItemAsCompleted(_ item: Item) {
-        // TODO: Toggle the given Item as complete/incomplete in this ItemList.
+        // Done: Toggle the given Item as complete/incomplete in this ItemList.
+        if let index = items.firstIndex(where: { $0.id == item.id }) {
+            items[index].isCompleted.toggle()
+        }
     }
 }
 
