@@ -19,7 +19,7 @@ class ItemList: Identifiable {
     }
     
     struct Item: Identifiable {
-        // Donne: What properties would Item have?
+        // Done: What properties would Item have?
         var id: UUID = .init()
         var name: String
         var isCompleted: Bool = false
